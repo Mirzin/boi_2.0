@@ -1,14 +1,15 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function Hehe() {
+function Hehe() {
   const searchParams = useSearchParams();
   let name = searchParams.get("name");
   const router = useRouter();
   let hehe = "F*ck You";
 
-  if (name === "Ishita" || name === "ishita") {
+  if (name === "Ishita" || name === "ishita" || name === "ISHITA") {
     hehe = "Hehehehehe";
     name = "";
   }
@@ -34,5 +35,13 @@ export default function Hehe() {
       </div>
       <div className="flex-1"></div>
     </div>
+  );
+}
+
+export default function HehePage() {
+  return (
+    <Suspense>
+      <Hehe />
+    </Suspense>
   );
 }
